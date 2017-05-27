@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <label class="radio-inline">
+        <input type="radio" name="numberOptions" id="all" value="all"
+          [(ngModel)]="selectedOption">
+        All
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="numberOptions" id="even" value="even"
+          [(ngModel)]="selectedOption" >
+        Even
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="numberOptions" id="odd" value="odd"
+          [(ngModel)]="selectedOption" >
+        Odd
+      </label>
+      <br><br>
+      <table class="table">
+        <tr *ngFor="let n of numbers">
+          <td *ngIf="showNumber(n)" 
+            [ngClass]="{ odd: n % 2 !== 0 }"
+            [ngStyle]="{ backgroundColor: n % 2 === 0 ? 'wheat' : 'lightyellow' }">{{ n }}
+          </td>
+        </tr>
+      </table>
+      <p appBasicHighlight>sample custom directive - appBasicHighlight</p>
+      <p appBetterHighlight [defaultColor]="'lightblue'" [highlightColor]="'lightgreen'">sample custom directive - appBetterHighlight</p>
+    </div>
+  </div>
+</div>
